@@ -5,7 +5,7 @@ export default class GaUtil {
     this.enable = !!flag;
   }
 
-  init(id) {
+  init() {
     if (this.googleId && this.enable) {
       /*eslint-disable */
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
