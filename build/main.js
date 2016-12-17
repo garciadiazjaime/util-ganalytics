@@ -55,17 +55,17 @@ module.exports =
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var enable = true;
-
 	var GaUtil = function () {
-	  function GaUtil() {
+	  function GaUtil(flag) {
 	    _classCallCheck(this, GaUtil);
+
+	    this.enable = !!flag;
 	  }
 
-	  _createClass(GaUtil, null, [{
+	  _createClass(GaUtil, [{
 	    key: 'init',
 	    value: function init(id) {
-	      if (enable) {
+	      if (this.enable) {
 	        /*eslint-disable */
 	        (function (i, s, o, g, r, a, m) {
 	          i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function () {
@@ -80,7 +80,7 @@ module.exports =
 	  }, {
 	    key: 'sendEvent',
 	    value: function sendEvent(eventCategory, eventAction, eventLabel, eventValue) {
-	      if (enable) {
+	      if (this.enable) {
 	        /*eslint-disable */
 	        ga('send', 'event', eventCategory, eventAction, eventLabel, eventValue);
 	        /*eslint-enable */

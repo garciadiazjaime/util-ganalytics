@@ -1,9 +1,11 @@
-const enable = true;
-
 export default class GaUtil {
 
-  static init(id) {
-    if (enable) {
+  constructor(flag) {
+    this.enable = !!flag;
+  }
+
+  init(id) {
+    if (this.enable) {
       /*eslint-disable */
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -15,8 +17,8 @@ export default class GaUtil {
     }
   }
 
-  static sendEvent(eventCategory, eventAction, eventLabel, eventValue) {
-    if (enable) {
+  sendEvent(eventCategory, eventAction, eventLabel, eventValue) {
+    if (this.enable) {
       /*eslint-disable */
       ga('send', 'event', eventCategory, eventAction, eventLabel, eventValue);
       /*eslint-enable */
